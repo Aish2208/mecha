@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'  // ← change this
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -8,7 +8,7 @@ import Contact from './pages/Contact'
 
 export default function App() {
   return (
-    <HashRouter>    {/* ← and this */}
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
