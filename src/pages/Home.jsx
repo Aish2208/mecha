@@ -12,8 +12,7 @@ const industries = [
 
 const partners = [
   'FUCHS', 'FREUDENBERG-NOK', 'STAUFF', 'KLEENOIL', 'Hydroline',
-  'AVENTICS', 'HYDAC', 'BUCHER', 'Hengst', 'Rexroth',
-  'Rockwell', 'Siemens', 'ABB', 'FANUC', 'KEYENCE',
+  'AVENTICS', 'HYDAC', 'BUCHER', 'Hengst'',
 ]
 
 const stats = [
