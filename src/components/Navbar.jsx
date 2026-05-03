@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
           <div className="logo-mark">
-            <span className="logo-m">M</span>
+            <img src="/images/logo.png" alt="logo" />
           </div>
           <div className="logo-text">
             <span className="logo-top">MECH AUTO</span>
