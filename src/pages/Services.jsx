@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion";
 import './Services.css'
 
 const categories = [
@@ -178,55 +179,223 @@ export default function Services() {
 
       {/* ── PRODUCTS GRID ── */}
       <section className="section products-section">
-        <div className="container">
-          <p className="tag">Product Range</p>
-          <h2 className="section-title">WHAT WE <span>SUPPLY</span></h2>
-          <div className="divider" />
-          <div className="products-grid">
-            {productSections.map((ps, i) => (
-              <div className="product-group" key={i}>
-                <h3 className="pg-title">{ps.title}</h3>
-                <ul className="pg-list">
-                  {ps.items.map((item, j) => (
-                    <li key={j} className="pg-item">
-                      <span className="pg-arrow">→</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+      <div className="container">
+
+      <motion.p
+        className="tag"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        Product Range
+      </motion.p>
+  
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        WHAT WE <span>SUPPLY</span>
+      </motion.h2>
+  
+      <motion.div
+        className="divider"
+        initial={{ width: 0 }}
+        whileInView={{ width: "80px" }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      />
+  
+      <div className="products-grid">
+      {productSections.map((ps, i) => (
+        <motion.div
+          key={i}
+          className="product-group"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: i * 0.15,
+            ease: "easeOut"
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{
+            y: -8
+          }}
+        >
+          <motion.h3
+            className="pg-title"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2 + i * 0.15
+            }}
+            viewport={{ once: true }}
+          >
+            {ps.title}
+          </motion.h3>
+
+          <ul className="pg-list">
+            {ps.items.map((item, j) => (
+              <motion.li
+                key={j}
+                className="pg-item"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.3 + j * 0.05 + i * 0.15
+                }}
+                viewport={{ once: true }}
+              >
+                <motion.span
+                  className="pg-arrow"
+                  animate={{
+                    x: [0, 4, 0]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  →
+                </motion.span>
+
+                {item}
+              </motion.li>
             ))}
-          </div>
-        </div>
-      </section>
+          </ul>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* ── PROCESS STEPS ── */}
       <section className="section process-section noise">
-        <div className="container">
-          <p className="tag">How We Work</p>
-          <h2 className="section-title">OUR <span>PROCESS</span></h2>
-          <div className="divider" />
-          <div className="process-steps">
-            {[
-              { step: '01', title: 'Consultation', desc: 'Understand your operational requirements, environment, and goals.' },
-              { step: '02', title: 'Engineering Design', desc: 'Custom system architecture and circuit design tailored to your needs.' },
-              { step: '03', title: 'Fabrication', desc: 'Precision manufacturing using industry-grade components and materials.' },
-              { step: '04', title: 'Installation', desc: 'On-site installation by our experienced technical team.' },
-              { step: '05', title: 'Commissioning', desc: 'Functional testing, validation, and operational sign-off.' },
-              { step: '06', title: 'Support', desc: 'Preventive maintenance and ongoing technical assistance.' },
-            ].map((s, i) => (
-              <div className="process-step" key={i}>
-                <div className="ps-number">{s.step}</div>
-                <div className="ps-body">
-                  <h4 className="ps-title">{s.title}</h4>
-                  <p className="ps-desc">{s.desc}</p>
-                </div>
-                {i < 5 && <div className="ps-arrow">›</div>}
-              </div>
-            ))}
+      <div className="container">
+
+      <motion.p
+        className="tag"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        How We Work
+      </motion.p>
+  
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        OUR <span>PROCESS</span>
+      </motion.h2>
+  
+      <motion.div
+        className="divider"
+        initial={{ width: 0 }}
+        whileInView={{ width: "80px" }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      />
+  
+    <div className="process-steps">
+      {[
+        {
+          step: '01',
+          title: 'Consultation',
+          desc: 'Understand your operational requirements, environment, and goals.'
+        },
+        {
+          step: '02',
+          title: 'Engineering Design',
+          desc: 'Custom system architecture and circuit design tailored to your needs.'
+        },
+        {
+          step: '03',
+          title: 'Fabrication',
+          desc: 'Precision manufacturing using industry-grade components and materials.'
+        },
+        {
+          step: '04',
+          title: 'Installation',
+          desc: 'On-site installation by our experienced technical team.'
+        },
+        {
+          step: '05',
+          title: 'Commissioning',
+          desc: 'Functional testing, validation, and operational sign-off.'
+        },
+        {
+          step: '06',
+          title: 'Support',
+          desc: 'Preventive maintenance and ongoing technical assistance.'
+        }
+      ].map((s, i) => (
+        <motion.div
+          key={i}
+          className="process-step"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: i * 0.15,
+            ease: "easeOut"
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{
+            y: -8
+          }}
+        >
+          <motion.div
+            className="ps-number"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2 + i * 0.15
+            }}
+            viewport={{ once: true }}
+          >
+            {s.step}
+          </motion.div>
+
+          <div className="ps-body">
+            <h4 className="ps-title">{s.title}</h4>
+            <p className="ps-desc">{s.desc}</p>
           </div>
-        </div>
-      </section>
+
+          {i < 5 && (
+            <motion.div
+              className="ps-arrow"
+              animate={{
+                x: [0, 5, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              ›
+            </motion.div>
+          )}
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
     </div>
   )
