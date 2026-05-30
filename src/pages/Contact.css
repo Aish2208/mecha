@@ -277,14 +277,213 @@ a.ci-value:hover {
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
+/* ===================================
+   TABLET (≤ 992px)
+=================================== */
+@media (max-width: 992px) {
+
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
+  }
+
+  .contact-info-items {
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .contact-form-wrap {
+    padding: 36px 30px;
+  }
+
+  .map-section {
+    height: 280px;
   }
 }
 
-@media (max-width: 600px) {
-  .form-row { grid-template-columns: 1fr; }
-  .contact-form-wrap { padding: 28px 20px; }
+
+/* ===================================
+   MOBILE (≤ 768px)
+=================================== */
+@media (max-width: 768px) {
+
+  /* Contact Info */
+  .ci-item {
+    gap: 14px;
+  }
+
+  .ci-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ci-value {
+    font-size: 13px;
+  }
+
+  /* Service Chips */
+  .csh-chips {
+    gap: 6px;
+  }
+
+  .csh-chip {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  /* Form */
+  .contact-form-wrap {
+    padding: 30px 24px;
+  }
+
+  .form-title {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .form-textarea {
+    min-height: 100px;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+
+  /* Success State */
+  .form-success {
+    padding: 40px 20px;
+  }
+
+  .fs-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .fs-title {
+    font-size: 30px;
+  }
+
+  .fs-desc {
+    font-size: 14px;
+  }
+
+  /* Map */
+  .map-section {
+    height: 250px;
+  }
+
+  .map-pin-icon {
+    font-size: 34px;
+  }
+
+  .map-text strong {
+    font-size: 14px;
+  }
+
+  .map-text span {
+    font-size: 12px;
+  }
+}
+
+
+/* ===================================
+   SMALL PHONES (≤ 480px)
+=================================== */
+@media (max-width: 480px) {
+
+  .contact-grid {
+    gap: 36px;
+  }
+
+  /* Contact Info */
+  .contact-info-items {
+    gap: 22px;
+  }
+
+  .ci-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ci-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .ci-value {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Chips */
+  .csh-chip {
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+
+  /* Form */
+  .contact-form-wrap {
+    padding: 24px 18px;
+  }
+
+  .form-title {
+    font-size: 16px;
+  }
+
+  .form-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .form-input {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .form-textarea {
+    min-height: 90px;
+  }
+
+  /* Success */
+  .fs-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  .fs-title {
+    font-size: 24px;
+  }
+
+  .fs-desc {
+    font-size: 13px;
+  }
+
+  /* Map */
+  .map-section {
+    height: 220px;
+  }
+
+  .map-pin-icon {
+    font-size: 30px;
+  }
+
+  .map-text strong {
+    font-size: 13px;
+  }
+
+  .map-text span {
+    font-size: 11px;
+  }
 }
