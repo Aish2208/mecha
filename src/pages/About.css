@@ -46,10 +46,19 @@
 }
 
 .mission-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 72px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+
+}
+
+.mission-text .section-title {
+  margin-bottom: 24px;
+}
+
+.mission-text p {
+  max-width: 700px;
 }
 
 .mission-badge-col {
@@ -64,6 +73,12 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.mission-badge:hover {
+  box-shadow: 0 15px 40px rgba(255, 0, 0, 0.15);
 }
 
 .mission-badge::before {
@@ -114,6 +129,11 @@
   background: var(--dark-2);
   padding: 28px 24px;
   border-left: 4px solid var(--red);
+  transition: box-shadow 0.3s ease;
+}
+
+.mission-quote:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .mq-mark {
@@ -130,7 +150,20 @@
   font-weight: 300;
   color: var(--gray-light);
   line-height: 1.7;
+  flex: 1;
 }
+
+.btn-red {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-red:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.25);
+}
+
 
 /* ─── VALUES ─── */
 .values-section {
@@ -149,12 +182,17 @@
   background: var(--dark);
   padding: 40px 36px;
   border-top: 3px solid transparent;
-  transition: border-color 0.25s, background 0.25s;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .value-card:hover {
   border-color: var(--red);
   background: var(--dark-2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .value-number {
@@ -163,6 +201,11 @@
   color: rgba(255,255,255,0.06);
   line-height: 1;
   margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.value-card:hover .value-number {
+  color: rgba(204, 0, 0, 0.25);
 }
 
 .value-title {
@@ -279,11 +322,18 @@
   border: 1px solid rgba(255,255,255,0.06);
   padding: 36px 20px;
   text-align: center;
-  transition: border-color 0.25s;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .client-card:hover {
   border-color: var(--red);
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .client-initial {
@@ -291,13 +341,24 @@
   height: 56px;
   background: var(--red);
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-family: var(--font-display);
   font-size: 28px;
   color: white;
+
   margin: 0 auto 16px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.client-card:hover .client-initial {
+  box-shadow: 0 0 20px rgba(204,0,0,0.4);
 }
 
 .client-name {
@@ -307,24 +368,226 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--gray-light);
+
+  transition: color 0.3s ease;
 }
 
+.client-card:hover .client-name {
+  color: var(--white);
+}
 .clients-more {
-  margin-top: 24px;
+  margin-top: 32px;
+  text-align: center;
+
   font-size: 14px;
   font-weight: 300;
   color: var(--gray);
+
   font-style: italic;
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .mission-inner { grid-template-columns: 1fr; }
-  .values-grid { grid-template-columns: 1fr; }
-  .i4-content { grid-template-columns: 1fr; }
-  .clients-grid { grid-template-columns: 1fr 1fr; }
+ /* 992px */
+@media (max-width: 992px) {
+
+  .page-hero {
+    padding: 80px 0 60px;
+  }
+
+  .mission-inner,
+  .i4-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .mission-inner {
+    flex-direction: column;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-hero-inner {
+    max-width: 100%;
+  }
+
+  .mb-num {
+    font-size: 60px;
+  }
 }
 
-@media (max-width: 600px) {
-  .clients-grid { grid-template-columns: 1fr; }
+
+/*768px*/
+@media (max-width: 768px) {
+
+  .page-hero {
+    padding: 70px 0 50px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .page-hero-inner .section-desc,
+  .mission-text p,
+  .value-desc,
+  .timeline-desc,
+  .mq-text {
+    font-size: 14px;
+  }
+
+  .mission-inner {
+    gap: 40px;
+  }
+
+  .mission-badge-col {
+    width: 100%;
+  }
+
+  .mission-badge,
+  .mission-quote {
+    width: 100%;
+  }
+
+  .mission-badge {
+    padding: 32px 24px;
+  }
+
+  .mb-num {
+    font-size: 52px;
+  }
+
+  .value-card {
+    padding: 28px 24px;
+  }
+
+  .value-number {
+    font-size: 42px;
+  }
+
+  .value-title {
+    font-size: 18px;
+  }
+
+  .i4-content {
+    gap: 40px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 40px 14px 1fr;
+    gap: 12px;
+  }
+
+  .timeline-year {
+    font-size: 12px;
+  }
+
+  .timeline-era {
+    font-size: 13px;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .client-card {
+    padding: 28px 16px;
+  }
+
+  .client-initial {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .client-name {
+    font-size: 12px;
+  }
+}
+
+
+/*(≤ 480px)*/
+@media (max-width: 480px) {
+
+  .page-hero {
+    padding: 60px 0 40px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .mission-badge {
+    padding: 28px 20px;
+  }
+
+  .mb-num {
+    font-size: 44px;
+  }
+
+  .mq-mark {
+    font-size: 36px;
+  }
+
+  .mq-text {
+    font-size: 13px;
+  }
+
+  .value-card {
+    padding: 24px 20px;
+  }
+
+  .value-number {
+    font-size: 36px;
+  }
+
+  .value-title {
+    font-size: 16px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 32px 12px 1fr;
+    gap: 10px;
+  }
+
+  .timeline-year {
+    font-size: 11px;
+  }
+
+  .timeline-era {
+    font-size: 12px;
+  }
+
+  .timeline-desc {
+    font-size: 12px;
+  }
+
+  .clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-card {
+    padding: 24px 16px;
+  }
+
+  .client-initial {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .client-name {
+    font-size: 11px;
+  }
 }
