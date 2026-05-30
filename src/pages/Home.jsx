@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion";
 import './Home.css'
-
 const industries = [
   { icon: '🏭', title: 'Cement Industry', desc: 'Automation and hydraulic systems for heavy-duty and continuous operations.' },
   { icon: '⚙️', title: 'Steel & Metal Processing', desc: 'Robust solutions designed for high-pressure and high-temperature environments.' },
@@ -12,7 +12,8 @@ const industries = [
 
 const partners = [
   'FUCHS', 'FREUDENBERG-NOK', 'STAUFF', 'KLEENOIL', 'Hydroline',
-  'AVENTICS', 'HYDAC', 'BUCHER', 'Hengst'',
+  'AVENTICS', 'HYDAC', 'BUCHER', 'Hengst', 'Rexroth',
+  'Rockwell', 'Siemens', 'ABB', 'FANUC', 'KEYENCE',
 ]
 
 const stats = [
@@ -119,18 +120,46 @@ export default function Home() {
       {/* ── INDUSTRIES ── */}
       <section className="section industries-section">
         <div className="container">
-          <p className="tag">Our Reach</p>
-          <h2 className="section-title">INDUSTRIES<br /><span>WE SERVE</span></h2>
+          <motion.p
+          className="tag"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          >
+          Our Reach
+          </motion.p>
+
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            INDUSTRIES<br /><span>WE SERVE</span>
+          </motion.h2>
           <div className="divider" />
           <div className="industries-grid">
             {industries.map((ind, i) => (
-              <div className="industry-card" key={i}>
-                <div className="industry-icon">{ind.icon}</div>
-                <h3 className="industry-title">{ind.title}</h3>
-                <p className="industry-desc">{ind.desc}</p>
-                <div className="industry-line" />
-              </div>
-            ))}
+          <motion.div
+            key={i}
+            className="industry-card"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: i * 0.15,
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <div className="industry-icon">{ind.icon}</div>
+            <h3 className="industry-title">{ind.title}</h3>
+            <p className="industry-desc">{ind.desc}</p>
+            <div className="industry-line" />
+          </motion.div>
+))}
           </div>
         </div>
       </section>
