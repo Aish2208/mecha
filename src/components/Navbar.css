@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  
 }
 
 .logo-m {
