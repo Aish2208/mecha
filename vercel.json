@@ -1,19 +1,26 @@
 {
-  "version": 3,
-  "services": [
+  "version": 2,
+  "installCommand": "npm install && cd backend && npm install",
+  "buildCommand": "npm run build",
+  "builds": [
     {
-      "name": "frontend",
       "src": "package.json",
-      "framework": "vite",
-      "outputDirectory": "dist",
-      "routePrefix": "/"
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
     },
     {
-      "name": "backend",
-      "src": "backend/package.json",
-      "runtime": "nodejs20.x",
-      "entrypoint": "server.js",
-      "routePrefix": "/_/backend"
+      "src": "backend/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_/backend/(.*)",
+      "dest": "/backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
