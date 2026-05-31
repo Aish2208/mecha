@@ -1,11 +1,19 @@
 {
-    "experimentalServices": {
-        "frontend": {
-            "routePrefix": "/"
-        },
-        "backend": {
-            "root": "backend",
-            "routePrefix": "/_/backend"
-        }
+  "version": 3,
+  "services": [
+    {
+      "name": "frontend",
+      "src": "package.json",
+      "framework": "vite",
+      "outputDirectory": "dist",
+      "routePrefix": "/"
+    },
+    {
+      "name": "backend",
+      "src": "backend/package.json",
+      "runtime": "nodejs20.x",
+      "entrypoint": "server.js",
+      "routePrefix": "/_/backend"
     }
+  ]
 }
